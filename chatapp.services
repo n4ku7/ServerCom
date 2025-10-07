@@ -1,0 +1,15 @@
+[Unit]
+Description=CLI Chat Server (with TLS / auth)
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/path/to/cli-chatapp/server
+# If you are using TLS and have certs in server/certs, set the command accordingly:
+# ExecStart=/usr/bin/python3 server.py --certfile certs/cert.pem --keyfile certs/key.pem
+ExecStart=/usr/bin/python3 /path/to/cli-chatapp/server/server.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
